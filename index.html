@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynce And Await</title>
+</head>
+<body style="background-color: violet;">
+    <pre>
+        Q.1	Write one example explaining how you can write a callback function.																									
+        function is passed as an argument to the  Anothar Function 
+    </pre><br>
+    <pre>
+        Q.2	"Write a callback function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, 2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
+
+Explain callback hell.
+Numbers
+1
+2
+3
+4
+5
+6
+7"				
+function printName(number, delay) {
+    setTimeout(function() {
+        console.log(number);
+    }, delay * 1000);
+}
+
+for (let i = 1; i <= 7; i++) {
+    printName(i, i);
+}
+    </pre><br>
+    <pre>
+        Q.3	"Write the promise function to print numbers from 1 to 7, in which 1 should be printed after 1 sec, 2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
+
+Numbers
+1
+2
+3
+4
+5
+6
+7"		
+function myFunction() {
+    return timeout = setTimeout(()=>{
+     console.log("1")
+    
+     timeout2 = setTimeout(()=>{
+     console.log("2")
+     setTimeout(()=>{
+     console.log("3")
+     setTimeout(()=>{
+     console.log("4")
+     }, 1000);
+    }, 2000);
+    }, 3000);
+    }, 4000);
+   }myFunction()
+ 
+  
+    </pre><br>
+    <pre>
+        Q.4	"Create a promise function accepting an argument, if yes is passed to the function then it should go to resolved state and print Promise Resolved, and if nothing is passed 
+then it should go to reject the state and catch the error and print Promise Rejected "																									
+
+function checkPromiseResult(result) {
+    return new Promise((resolve, reject) => {
+        if (result === 'yes') {
+            resolve('Promise Resolved');
+        } else {
+            reject('Promise Rejected');
+        }
+    });
+}
+checkPromiseResult('yes')
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+
+checkPromiseResult()
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+
+    </pre><br>
+    <pre>
+        Q. 5	Create examples to explain callback function																									
+        A callback function is a function passed into another function as an argument
+
+        function callback(a,b){
+            log "Hello"
+        }
+        function callback2(){
+            log" callback function  2"
+        }
+        callback2(callback)
+    </pre><br>
+    <pre>
+        Q. 6	Create examples to explain callback hell function																									
+
+        getUser(function(user) {
+            getOrders(user.id, function(orders) {
+                getOrderDetails(orders[0].id, function(orderDetails) {
+                    showOrderDetails(orderDetails);
+                });
+            });
+        });
+
+        getUser()
+    .then(user => getOrders(user.id))
+    .then(orders => getOrderDetails(orders[0].id))
+    .then(orderDetails => showOrderDetails(orderDetails))
+    .catch(error => console.error(error));
+    </pre><br>
+    <pre>
+        Q. 7	Create examples to explain promises function																									
+        var factchData= ()=>{
+            return new Promise((resolve,reject)=>{
+                setTiomeout(()=>{
+                    if(tickt){
+                        resolve("let go to vacation")
+                    }else{
+                        reject("lets find")
+                    }
+                },2000)
+            })
+        }
+        factchData(tickt),than((resolve)=>{
+            log(result)
+        }).catch((err)=>{
+            log(err)
+        })
+        log(factchData)
+    </pre><br>
+    <pre>
+        Q. 8	Create examples to explain async await function																									
+
+        const url="https://github.com/Rajesh"
+        async function factchData(){
+            const res=await fetch(url)
+            const data=await res.json
+            log(data)
+        }
+        catch(err){
+            log(ree)
+        }fetchData()
+    </pre><br>
+    <pre>
+        Q. 9	Create examples to explain promise.all function																									
+        function fetchUser(userId) {
+            return new Promise((resolve, reject) => {
+                if (userId === 1) {
+                    setTimeout(() => {
+                        resolve({ id: 1, name: 'John' });
+                    }, 1000);
+                } else {
+                    setTimeout(() => {
+                        reject(`User ${userId} not found`);
+                    }, 1000);
+                }
+            });
+        }
+        
+        const userIds = [1, 2, 3];
+        
+        const userPromises = userIds.map(userId => fetchUser(userId));
+        
+        Promise.all(userPromises)
+            .then(users => {
+                console.log(users);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        
+    </pre>
+
+
+
+
+</body>
+</html>
